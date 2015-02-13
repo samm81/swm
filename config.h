@@ -2,7 +2,7 @@
 
 /* appearance */
 static const char font[] = "-*-xbmicons-medium-r-*-*-12-*-*-*-*-*-*-*" ","
-                           "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
+                           "-*-terminus2-medium-r-*-*-12-*-*-*-*-*-*-*";
 #define NUMCOLORS 12
 static const char colors[NUMCOLORS][ColLast][9] = {
   // border foreground background
@@ -31,28 +31,14 @@ static const char *tags[] = { "\uE000", "\uE001", "\uE002", "\uE003", "\uE008",
 static const Rule rules[] = {
   /* class                      instance     title  tags mask isfloating  iscentred   monitor */
   { "feh",                      NULL,        NULL,  0,        True,       True,       -1 },
-  { "Gcolor2",                  NULL,        NULL,  0,        True,       True,       -1 },
   { "XFontSel",                 NULL,        NULL,  0,        True,       True,       -1 },
   { "Xfd",                      NULL,        NULL,  0,        True,       True,       -1 },
   { "Firefox",                  NULL,        NULL,  1,        False,      False,      -1 },
-  { "URxvt",                    "ircmailbt", NULL,  1 << 1,   False,      False,      -1 },
-  { "Gvim",                     NULL,        NULL,  1 << 2,   False,      False,      -1 },
-  { "Zathura",                  NULL,        NULL,  1 << 3,   False,      False,      -1 },
-  { "jetbrains-android-studio", NULL,        NULL,  1 << 3,   False,      False,      -1 },
-  { "libreoffice-calc",         NULL,        NULL,  1 << 3,   False,      False,      -1 },
-  { "libreoffice-impress",      NULL,        NULL,  1 << 3,   False,      False,      -1 },
-  { "libreoffice-startcenter",  NULL,        NULL,  1 << 3,   False,      False,      -1 },
-  { "libreoffice-writer",       NULL,        NULL,  1 << 3,   False,      False,      -1 },
-  { "mpv",                      NULL,        NULL,  1 << 4,   False,      False,      -1 },
   { "fontforge",                NULL,        NULL,  1 << 5,   True,       True,       -1 },
   { "Gimp",                     NULL,        NULL,  1 << 5,   True,       True,       -1 },
-  { "PacketTracer6",            NULL,        NULL,  1 << 5,   True,       True,       -1 },
-  { "TeamViewer.exe",           NULL,        NULL,  1 << 5,   True,       True,       -1 },
-  { "Wine",                     NULL,        NULL,  1 << 5,   True,       True,       -1 },
-  { "URxvt",                    "filemgr",   NULL,  1 << 6,   False,      False,      -1 },
-  { "Chromium",                 NULL,        NULL,  1 << 7,   False,      False,      -1 },
   { "Google-chrome-stable",     NULL,        NULL,  1 << 7,   False,      False,      -1 },
 };
+
 
 /* layout(s) */
 static const float mfact      = 0.50;  /* factor of master area size [0.05..0.95] */
@@ -83,9 +69,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char  *dmenucmd[]     = { "dmenu_run", "-fn", font, "-nb", colors[0][ColBG], "-nf", colors[0][ColFG], "-sb", colors[1][ColBG], "-sf", colors[1][ColFG], NULL };
-static const char *termcmd[]       = { "urxvtc", NULL };
-static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = { "urxvtc", "-name", scratchpadname, "-geometry", "100x25", NULL };
+static const char *termcmd[]       = { "st", NULL };
 static const char *volupcmd[]      = { "mpc", "-q", "volume", "+5", NULL };
 static const char *voldncmd[]      = { "mpc", "-q", "volume", "-5", NULL };
 static const char *mpctog[]        = { "mpc", "-q", "toggle", NULL };
@@ -95,9 +79,8 @@ static const char *mpcnext[]       = { "mpc", "-q", "next", NULL };
 #include "push.c"
 static Key keys[] = {
   /* modifier               key               function        argument */
-  { MODKEY,                 XK_o,             spawn,          {.v = dmenucmd } },
+  { MODKEY,                 XK_p,             spawn,          {.v = dmenucmd } },
   { MODKEY|ShiftMask,       XK_Return,        spawn,          {.v = termcmd } },
-  { MODKEY,                 XK_s,             togglescratch,  {.v = scratchpadcmd} },
   { MODKEY,                 XK_apostrophe,    spawn,          {.v = volupcmd } },
   { MODKEY,                 XK_semicolon,     spawn,          {.v = voldncmd } },
   { MODKEY,                 XK_slash,         spawn,          {.v = mpctog } },
