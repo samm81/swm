@@ -1,4 +1,2 @@
-pkg/*
-src/*
-*.tar.gz
-*.tar.xz
+dwm
+dwm.o
