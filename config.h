@@ -6,7 +6,7 @@ static const char font[] = "-*-xbmicons-medium-r-*-*-12-*-*-*-*-*-*-*" ","
 #define NUMCOLORS 12
 static const char colors[NUMCOLORS][ColLast][9] = {
   // border foreground background
-  { "#282a2e", "#373b41", "#1d1f21" }, // 1 = normal (grey on black)
+  { "#282a2e", "#777b81", "#1d1f21" }, // 1 = normal (grey on black)
   { "#f0c674", "#c5c8c6", "#1d1f21" }, // 2 = selected (white on black)
   { "#dc322f", "#1d1f21", "#f0c674" }, // 3 = urgent (black on yellow)
   { "#282a2e", "#282a2e", "#1d1f21" }, // 4 = darkgrey on black (for glyphs)
