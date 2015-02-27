@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+#include <X11/XF86keysym.h>
 
 /* appearance */
 static const char font[] = "-*-xbmicons-medium-r-*-*-12-*-*-*-*-*-*-*" ","
@@ -70,22 +71,26 @@ static const Layout layouts[] = {
 /* commands */
 static const char  *dmenucmd[]     = { "dmenu_run", "-fn", font, "-nb", colors[0][ColBG], "-nf", colors[0][ColFG], "-sb", colors[1][ColBG], "-sf", colors[1][ColFG], NULL };
 static const char *termcmd[]       = { "st", NULL };
-static const char *volupcmd[]      = { "mpc", "-q", "volume", "+5", NULL };
-static const char *voldncmd[]      = { "mpc", "-q", "volume", "-5", NULL };
-static const char *mpctog[]        = { "mpc", "-q", "toggle", NULL };
-static const char *mpcprev[]       = { "mpc", "-q", "prev", NULL };
-static const char *mpcnext[]       = { "mpc", "-q", "next", NULL };
+static const char *volupcmd[]      = { "amixer", "-c", "0", "set", "Master", "5+", NULL };
+static const char *voldncmd[]      = { "amixer", "-c", "0", "set", "Master", "5-", NULL };
+static const char *voltogcmd[]      = { "amixer", "-c", "0", "set", "Master", "toggle", NULL };
+static const char *mbrupcmd[]      = { "xbacklight", "-inc", "5", NULL };
+static const char *mbrdncmd[]      = { "xbacklight", "-dec", "5", NULL };
+static const char *kbrupcmd[]      = { NULL };
+static const char *kbrdncmd[]      = { NULL };
 
 #include "push.c"
 static Key keys[] = {
   /* modifier               key               function        argument */
   { MODKEY,                 XK_p,             spawn,          {.v = dmenucmd } },
   { MODKEY|ShiftMask,       XK_Return,        spawn,          {.v = termcmd } },
-  { MODKEY,                 XK_apostrophe,    spawn,          {.v = volupcmd } },
-  { MODKEY,                 XK_semicolon,     spawn,          {.v = voldncmd } },
-  { MODKEY,                 XK_slash,         spawn,          {.v = mpctog } },
-  { MODKEY,                 XK_bracketleft,   spawn,          {.v = mpcprev } },
-  { MODKEY,                 XK_bracketright,  spawn,          {.v = mpcnext } },
+  { MODKEY,                 XF86XK_AudioRaiseVolume, spawn,   {.v = volupcmd } },
+  { MODKEY,                 XF86XK_AudioLowerVolume, spawn,   {.v = voldncmd } },
+  { MODKEY,                 XF86XK_AudioMute,    spawn,       {.v = voltogcmd } },
+  { MODKEY,                 XF86XK_MonBrightnessUp, spawn,    {.v = mbrupcmd } },
+  { MODKEY,                 XF86XK_MonBrightnessDown, spawn,  {.v = mbrdncmd } },
+  { MODKEY,                 XF86XK_KbdBrightnessUp, spawn,    {.v = kbrupcmd } },
+  { MODKEY,                 XF86XK_KbdBrightnessDown, spawn,  {.v = kbrdncmd } },
   { MODKEY|ControlMask,     XK_b,             togglebar,      {0} },
   { MODKEY,                 XK_j,             focusstack,     {.i = +1 } },
   { MODKEY,                 XK_k,             focusstack,     {.i = -1 } },
@@ -98,6 +103,7 @@ static Key keys[] = {
   { MODKEY,                 XK_Return,        zoom,           {0} },
   { MODKEY,                 XK_Tab,           view,           {0} },
   { MODKEY|ShiftMask,       XK_c,             killclient,     {0} },
+  { MODKEY|ShiftMask,       XK_q,             killclient,     {0} },
   { MODKEY,                 XK_t,             setlayout,      {.v = &layouts[0]} },
   { MODKEY,                 XK_f,             setlayout,      {.v = &layouts[1]} },
   { MODKEY,                 XK_m,             setlayout,      {.v = &layouts[2]} },
@@ -120,7 +126,7 @@ static Key keys[] = {
     TAGKEYS(                  XK_7,                             6)
     TAGKEYS(                  XK_8,                             7)
     TAGKEYS(                  XK_9,                             8)
-    { MODKEY|ShiftMask,       XK_q,             quit,           {0} },
+    { MODKEY|ShiftMask|ControlMask,       XK_q,             quit,           {0} },
 };
 
 /* button definitions */
