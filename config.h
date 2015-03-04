@@ -71,9 +71,9 @@ static const Layout layouts[] = {
 /* commands */
 static const char  *dmenucmd[]     = { "dmenu_run", "-fn", font, "-nb", colors[0][ColBG], "-nf", colors[0][ColFG], "-sb", colors[1][ColBG], "-sf", colors[1][ColFG], NULL };
 static const char *termcmd[]       = { "st", NULL };
-static const char *volupcmd[]      = { "amixer", "-c", "0", "set", "Master", "5+", NULL };
-static const char *voldncmd[]      = { "amixer", "-c", "0", "set", "Master", "5-", NULL };
-static const char *voltogcmd[]      = { "amixer", "-c", "0", "set", "Master", "toggle", NULL };
+static const char *volupcmd[]      = { "amixer", "-c0", "set", "Master", "5+", NULL };
+static const char *voldncmd[]      = { "amixer", "-c0", "set", "Master", "5-", NULL };
+static const char *voltogcmd[]      = { "amixer", "-c0", "set", "Master", "playback", "toggle", NULL };
 static const char *mbrupcmd[]      = { "xbacklight", "-inc", "5", NULL };
 static const char *mbrdncmd[]      = { "xbacklight", "-dec", "5", NULL };
 static const char *kbrupcmd[]      = { NULL };
