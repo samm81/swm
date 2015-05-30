@@ -5,7 +5,9 @@ dwm is an extremely fast, small, and dynamic window manager for X.
 
 Requirements
 ------------
-In order to build dwm you need the Xlib header files.
+In order to build dwm you need the Xlib header files and suckless-tools.
+
+On Ubuntu, the command is ``sudo apt-get install build-essential libx11-dev libxinerama-dev sharutils suckless-tools``
 
 
 Installation
@@ -18,22 +20,10 @@ necessary as root):
 
     make clean install
 
-If you are going to use the default bluegray color scheme it is highly
-recommended to also install the bluegray files shipped in the dextra package.
-
 
 Running dwm
 -----------
-Add the following line to your .xinitrc to start dwm using startx:
-
-    exec dwm
-
-In order to connect dwm to a specific display, make sure that
-the DISPLAY environment variable is set correctly, e.g.:
-
-    DISPLAY=foo.bar:1 exec dwm
-
-(This will start dwm on display :1 of the host foo.bar.)
+In order to set dwm as a login session, cp the dwm.desktop file to ``/usr/share/xsessions/dwm.desktop``
 
 In order to display status info in the bar, you can do something
 like this in your .xinitrc:
@@ -43,6 +33,28 @@ like this in your .xinitrc:
     	sleep 1
     done &
     exec dwm
+
+
+Usage
+-----
+Alt+Shift+Enter
+    Launch xterm
+Alt+Shift+C
+	Kill a client (a window, if you must insist)
+Alt+t
+	Switch to tile layout
+Alt+m
+	Switch to monocle layout
+Alt+f
+	Switch to floating layout
+Alt+b
+	Show/hide bar
+Alt+p
+	Launch dmenu
+Alt+[num]
+	Switch to tag [num]
+Alt+Shift+Ctrl+Q
+	Quit dwm
 
 
 Configuration
