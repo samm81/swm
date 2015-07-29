@@ -20,6 +20,13 @@ necessary as root):
 
     make clean install
 
+In order to get the fonts working you will need to add these two
+lines to your .xinitrc (replacing ${FONTDIR} with whatever font
+directory you use):
+
+    xset +fp ${FONTDIR}/.fonts
+    xset fp rehash
+
 
 Running dwm
 -----------
