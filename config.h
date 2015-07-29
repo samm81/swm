@@ -46,15 +46,11 @@ static const float mfact      = 0.50;  /* factor of master area size [0.05..0.95
 static const int nmaster      = 1;     /* number of clients in master area */
 static const Bool resizehints = False; /* True means respect size hints in tiled resizals */
 
-#include "bstack.c"
-#include "gaplessgrid.c"
 static const Layout layouts[] = {
   /* symbol     arrange function */
   { "\uE019 \uE009 \uE019",    tile },    /* first entry is default */
   { "\uE019 \uE00A \uE019",    NULL },    /* no layout function means floating behavior */
   { "\uE019 \uE00B \uE019",    monocle },
-  { "\uE019 \uE00C \uE019",    bstack },
-  { "\uE019 \uE00D \uE019",    gaplessgrid },
 };
 
 /* key definitions */
@@ -73,11 +69,9 @@ static const char  *dmenucmd[]     = { "dmenu_run", "-fn", font, "-nb", colors[0
 static const char *termcmd[]       = { "st", NULL };
 static const char *volupcmd[]      = { "amixer", "-c0", "set", "Master", "5+", NULL };
 static const char *voldncmd[]      = { "amixer", "-c0", "set", "Master", "5-", NULL };
-static const char *voltogcmd[]      = { "amixer", "-c0", "set", "Master", "playback", "toggle", NULL };
+static const char *voltogcmd[]     = { "amixer", "-c0", "set", "Master", "playback", "toggle", NULL };
 static const char *mbrupcmd[]      = { "xbacklight", "-inc", "5", NULL };
 static const char *mbrdncmd[]      = { "xbacklight", "-dec", "5", NULL };
-static const char *kbrupcmd[]      = { NULL };
-static const char *kbrdncmd[]      = { NULL };
 
 #include "push.c"
 static Key keys[] = {
@@ -89,8 +83,6 @@ static Key keys[] = {
   { MODKEY,                 XF86XK_AudioMute,    spawn,       {.v = voltogcmd } },
   { MODKEY,                 XF86XK_MonBrightnessUp, spawn,    {.v = mbrupcmd } },
   { MODKEY,                 XF86XK_MonBrightnessDown, spawn,  {.v = mbrdncmd } },
-  { MODKEY,                 XF86XK_KbdBrightnessUp, spawn,    {.v = kbrupcmd } },
-  { MODKEY,                 XF86XK_KbdBrightnessDown, spawn,  {.v = kbrdncmd } },
   { MODKEY|ControlMask,     XK_b,             togglebar,      {0} },
   { MODKEY,                 XK_j,             focusstack,     {.i = +1 } },
   { MODKEY,                 XK_k,             focusstack,     {.i = -1 } },

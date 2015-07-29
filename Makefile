@@ -50,6 +50,10 @@ install: all
 	@mkdir -p ${DESTDIR}${MANPREFIX}/man1
 	@sed "s/VERSION/${VERSION}/g" < dwm.1 > ${DESTDIR}${MANPREFIX}/man1/dwm.1
 	@chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1
+	@echo installing fonts to ${DESTDIR}${FONTDIR}
+	@cp fonts/* ${DESTDIR}${FONTDIR}/
+	@echo rebuilding font list
+	@fc-cache -f
 
 uninstall:
 	@echo removing executable file from ${DESTDIR}${PREFIX}/bin
