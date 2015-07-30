@@ -34,10 +34,10 @@ static const Rule rules[] = {
   { "feh",                      NULL,        NULL,  0,        True,       True,       -1 },
   { "XFontSel",                 NULL,        NULL,  0,        True,       True,       -1 },
   { "Xfd",                      NULL,        NULL,  0,        True,       True,       -1 },
-  { "Firefox",                  NULL,        NULL,  1,        False,      False,      -1 },
-  { "fontforge",                NULL,        NULL,  1 << 5,   True,       True,       -1 },
-  { "Gimp",                     NULL,        NULL,  1 << 5,   True,       True,       -1 },
-  { "Google-chrome-stable",     NULL,        NULL,  1 << 7,   False,      False,      -1 },
+  { "Firefox",                  NULL,        NULL,  0,        False,      False,      -1 },
+  { "fontforge",                NULL,        NULL,  0,        True,       True,       -1 },
+  { "Gimp",                     NULL,        NULL,  0,        True,       True,       -1 },
+  { "Google-chrome-stable",     NULL,        NULL,  1 << 8,   False,      False,      -1 },
 };
 
 
@@ -73,7 +73,6 @@ static const char *voltogcmd[]     = { "amixer", "-c0", "set", "Master", "playba
 static const char *mbrupcmd[]      = { "xbacklight", "-inc", "5", NULL };
 static const char *mbrdncmd[]      = { "xbacklight", "-dec", "5", NULL };
 
-#include "push.c"
 static Key keys[] = {
   /* modifier               key               function        argument */
   { MODKEY,                 XK_p,             spawn,          {.v = dmenucmd } },
@@ -86,8 +85,6 @@ static Key keys[] = {
   { MODKEY|ControlMask,     XK_b,             togglebar,      {0} },
   { MODKEY,                 XK_j,             focusstack,     {.i = +1 } },
   { MODKEY,                 XK_k,             focusstack,     {.i = -1 } },
-  { MODKEY|ShiftMask,       XK_j,             pushdown,       {0} },
-  { MODKEY|ShiftMask,       XK_k,             pushup,         {0} },
   { MODKEY,                 XK_i,             incnmaster,     {.i = +1 } },
   { MODKEY,                 XK_d,             incnmaster,     {.i = -1 } },
   { MODKEY,                 XK_h,             setmfact,       {.f = -0.05} },
