@@ -26,18 +26,19 @@ static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 
 /* tagging */
-static const char *tags[] = { "\uE000", "\uE001", "\uE002", "\uE003", "\uE008",
-                              "\uE004", "\uE005", "\uE006","\uE007 " };
+static const char *tags[] = { "\uE007", "\uE007", "\uE007", "\uE002", "\uE002",
+                              "\uE002", "\uE008", "\uE008","\uE008 " };
 
 static const Rule rules[] = {
-  /* class                      instance     title  tags mask isfloating  iscentred   monitor */
-  { "feh",                      NULL,        NULL,  0,        True,       True,       -1 },
-  { "XFontSel",                 NULL,        NULL,  0,        True,       True,       -1 },
-  { "Xfd",                      NULL,        NULL,  0,        True,       True,       -1 },
-  { "Firefox",                  NULL,        NULL,  0,        False,      False,      -1 },
-  { "fontforge",                NULL,        NULL,  0,        True,       True,       -1 },
-  { "Gimp",                     NULL,        NULL,  0,        True,       True,       -1 },
-  { "Google-chrome-stable",     NULL,        NULL,  1 << 8,   False,      False,      -1 },
+  /* class                      instance     title  tags mask     isfloating  iscentred   monitor */
+  /*                                                  987654321                                   */
+  { "feh",                      NULL,        NULL,  0b111000000,  True,       True,       -1 },
+  { "XFontSel",                 NULL,        NULL,  0b111000000,  True,       True,       -1 },
+  { "Xfd",                      NULL,        NULL,  0b111000000,  True,       True,       -1 },
+  { "Firefox",                  NULL,        NULL,  0b000000111,  False,      False,      -1 },
+  { "fontforge",                NULL,        NULL,  0b111000000,  True,       True,       -1 },
+  { "Gimp",                     NULL,        NULL,  0b111000000,  True,       True,       -1 },
+  { "Google-chrome-stable",     NULL,        NULL,  0b000000111,  False,      False,      -1 },
 };
 
 
@@ -66,7 +67,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char  *dmenucmd[]     = { "dmenu_run", "-fn", font, "-nb", colors[0][ColBG], "-nf", colors[0][ColFG], "-sb", colors[1][ColBG], "-sf", colors[1][ColFG], NULL };
-static const char *termcmd[]       = { "st", NULL };
+static const char *termcmd[]       = { "st -e tmux", NULL };
 static const char *volupcmd[]      = { "amixer", "-c0", "set", "Master", "5+", NULL };
 static const char *voldncmd[]      = { "amixer", "-c0", "set", "Master", "5-", NULL };
 static const char *voltogcmd[]     = { "amixer", "-c0", "set", "Master", "playback", "toggle", NULL };
