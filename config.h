@@ -31,7 +31,6 @@ static const char *tags[] = { "\uE002", "\uE002", "\uE002", "\uE007", "\uE007",
 
 static const Rule rules[] = {
   /* class                      instance     title  tags mask  isfloating  iscentered   monitor */
-//  { "st",                       NULL,        NULL,  1,         False,      False,      -1 },
   { "feh",                      NULL,        NULL,  1 << 6,    True,       True,       -1 },
   { "XFontSel",                 NULL,        NULL,  1 << 6,    True,       True,       -1 },
   { "Xfd",                      NULL,        NULL,  1 << 6,    True,       True,       -1 },
@@ -39,6 +38,8 @@ static const Rule rules[] = {
   { "Gimp",                     NULL,        NULL,  1 << 6,    True,       True,       -1 },
   { "Firefox",                  NULL,        NULL,  1 << 3,    False,      False,      -1 },
   { "Google-chrome-stable",     NULL,        NULL,  1 << 3,    False,      False,      -1 },
+  { "Google-chrome",            NULL,        NULL,  1 << 3,    False,      False,      -1 },
+  { "Chrome",                   NULL,        NULL,  1 << 3,    False,      False,      -1 },
 };
 
 
@@ -68,9 +69,9 @@ static const Layout layouts[] = {
 /* commands */
 static const char  *dmenucmd[]     = { "dmenu_run", "-fn", font, "-nb", colors[0][ColBG], "-nf", colors[0][ColFG], "-sb", colors[1][ColBG], "-sf", colors[1][ColFG], NULL };
 static const char *termcmd[]       = { "st", "-e", "tmux", NULL };
-static const char *volupcmd[]      = { "amixer", "-c0", "set", "Master", "5+", NULL };
-static const char *voldncmd[]      = { "amixer", "-c0", "set", "Master", "5-", NULL };
-static const char *voltogcmd[]     = { "amixer", "-c0", "set", "Master", "playback", "toggle", NULL };
+static const char *volupcmd[]      = { "amixer", "-q", "sset", "Master", "5%+", NULL };
+static const char *voldncmd[]      = { "amixer", "-q", "sset", "Master", "5%-", NULL };
+static const char *voltogcmd[]     = { "amixer", "-q", "sset", "Master", "toggle", NULL };
 static const char *mbrupcmd[]      = { "xbacklight", "-inc", "5", NULL };
 static const char *mbrdncmd[]      = { "xbacklight", "-dec", "5", NULL };
 
@@ -81,8 +82,8 @@ static Key keys[] = {
   { MODKEY,                 XF86XK_AudioRaiseVolume, spawn,   {.v = volupcmd } },
   { MODKEY,                 XF86XK_AudioLowerVolume, spawn,   {.v = voldncmd } },
   { MODKEY,                 XF86XK_AudioMute,    spawn,       {.v = voltogcmd } },
-  { MODKEY,                 XF86XK_MonBrightnessUp, spawn,    {.v = mbrupcmd } },
-  { MODKEY,                 XF86XK_MonBrightnessDown, spawn,  {.v = mbrdncmd } },
+  { MODKEY,                 XF86XK_KbdBrightnessUp, spawn,    {.v = mbrupcmd } },
+  { MODKEY,                 XF86XK_KbdBrightnessDown, spawn,  {.v = mbrdncmd } },
   { MODKEY|ControlMask,     XK_b,             togglebar,      {0} },
   { MODKEY,                 XK_j,             focusstack,     {.i = +1 } },
   { MODKEY,                 XK_k,             focusstack,     {.i = -1 } },
