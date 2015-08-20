@@ -68,7 +68,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char  *dmenucmd[]     = { "dmenu_run", "-fn", font, "-nb", colors[0][ColBG], "-nf", colors[0][ColFG], "-sb", colors[1][ColBG], "-sf", colors[1][ColFG], NULL };
-static const char *termcmd[]       = { "st", "-e", "tmux", NULL };
+static const char *termcmd[]       = { "st", NULL };
 static const char *volupcmd[]      = { "amixer", "-q", "sset", "Master", "5%+", NULL };
 static const char *voldncmd[]      = { "amixer", "-q", "sset", "Master", "5%-", NULL };
 static const char *voltogcmd[]     = { "amixer", "-q", "sset", "Master", "toggle", NULL };

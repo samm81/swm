@@ -1248,7 +1248,7 @@ maprequest(XEvent *e) {
 
 void
 monocle(Monitor *m) {
-  unsigned int n = 0, r = 0;
+  unsigned r = 0;
 	Client *c;
 
   for(c = nexttiled(m->clients); c; c = nexttiled(c->next)) {
