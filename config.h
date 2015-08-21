@@ -26,20 +26,16 @@ static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 
 /* tagging */
-static const char *tags[] = { "\uE002", "\uE002", "\uE002", "\uE007", "\uE007",
-                              "\uE007", "\uE008", "\uE008","\uE008 " };
+static const char *tags[] = { "\uE002", "\uE002", "\uE002", "\uE002", "\uE002",
+                              "\uE008", "\uE007", "\uE007","\uE007 " };
 
 static const Rule rules[] = {
   /* class                      instance     title  tags mask  isfloating  iscentered   monitor */
   { "feh",                      NULL,        NULL,  1 << 6,    True,       True,       -1 },
-  { "XFontSel",                 NULL,        NULL,  1 << 6,    True,       True,       -1 },
-  { "Xfd",                      NULL,        NULL,  1 << 6,    True,       True,       -1 },
   { "fontforge",                NULL,        NULL,  1 << 6,    True,       True,       -1 },
-  { "Gimp",                     NULL,        NULL,  1 << 6,    True,       True,       -1 },
-  { "Firefox",                  NULL,        NULL,  1 << 3,    False,      False,      -1 },
-  { "Google-chrome-stable",     NULL,        NULL,  1 << 3,    False,      False,      -1 },
-  { "Google-chrome",            NULL,        NULL,  1 << 3,    False,      False,      -1 },
-  { "Chrome",                   NULL,        NULL,  1 << 3,    False,      False,      -1 },
+  { "google-chrome-stable",     NULL,        NULL,  1 << 3,    False,      False,      -1 },
+  { "google-chrome",            NULL,        NULL,  1 << 3,    False,      False,      -1 },
+  { "chrome",                   NULL,        NULL,  1 << 3,    False,      False,      -1 },
 };
 
 
