@@ -31,8 +31,6 @@ static const char *tags[] = { "\uE002", "\uE002", "\uE002", "\uE002", "\uE002",
 
 static const Rule rules[] = {
   /* class                      instance     title  tags mask  isfloating  iscentered   monitor */
-  { "feh",                      NULL,        NULL,  1 << 5,    True,       True,       -1 },
-  { "fontforge",                NULL,        NULL,  1 << 5,    True,       True,       -1 },
   { "Google-chrome-stable",     NULL,        NULL,  1 << 8,    False,      False,      -1 },
   { "Google-chrome",            NULL,        NULL,  1 << 8,    False,      False,      -1 },
   { "Chrome",                   NULL,        NULL,  1 << 8,    False,      False,      -1 },
