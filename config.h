@@ -30,12 +30,9 @@ static const char *tags[] = { "\uE002", "\uE002", "\uE002", "\uE002", "\uE002",
                               "\uE008", "\uE007", "\uE007","\uE007 " };
 
 static const Rule rules[] = {
-  /* class                      instance     title  tags mask  isfloating  iscentered   monitor */
-  { "Google-chrome-stable",     NULL,        NULL,  1 << 8,    False,      False,      -1 },
-  { "Google-chrome",            NULL,        NULL,  1 << 8,    False,      False,      -1 },
-  { "Chrome",                   NULL,        NULL,  1 << 8,    False,      False,      -1 },
+	/* class      instance    title       tags mask     isfloating   monitor */
+	{ "Gimp",     NULL,       NULL,       0,            True,        -1 },
 };
-
 
 /* layout(s) */
 static const float mfact      = 0.50;  /* factor of master area size [0.05..0.95] */
@@ -62,7 +59,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char  *dmenucmd[]     = { "dmenu_run", "-fn", font, "-nb", colors[0][ColBG], "-nf", colors[0][ColFG], "-sb", colors[1][ColBG], "-sf", colors[1][ColFG], NULL };
-static const char *termcmd[]       = { "st", NULL };
+static const char *termcmd[]       = { "st-solarized-light", NULL };
 static const char *volupcmd[]      = { "amixer", "-q", "sset", "Master", "5%+", NULL };
 static const char *voldncmd[]      = { "amixer", "-q", "sset", "Master", "5%-", NULL };
 static const char *voltogcmd[]     = { "amixer", "-q", "sset", "Master", "toggle", NULL };
