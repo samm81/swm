@@ -1,21 +1,21 @@
-dwm - dynamic window manager
+swm - samuel window manager
 ============================
-dwm is an extremely fast, small, and dynamic window manager for X.
+swm is an extremely fast, small, and dynamic window manager for X. Forked from dwm, the dynamic window manager.
 
 
 Requirements
 ------------
-In order to build dwm you need the Xlib header files and suckless-tools.
+In order to build swm you need the Xlib header files and suckless-tools.
 
 On Ubuntu, the command is ``sudo apt-get install build-essential libx11-dev libxinerama-dev sharutils suckless-tools``
 
 
 Installation
 ------------
-Edit config.mk to match your local setup (dwm is installed into
+Edit config.mk to match your local setup (swm is installed into
 the /usr/local namespace by default).
 
-Afterwards enter the following command to build and install dwm (if
+Afterwards enter the following command to build and install swm (if
 necessary as root):
 
     make clean install
@@ -28,9 +28,9 @@ directory you use):
     xset fp rehash
 
 
-Running dwm
+Running swm
 -----------
-In order to set dwm as a login session, cp the dwm.desktop file to ``/usr/share/xsessions/dwm.desktop``
+In order to set swm as a login session, cp the swm.desktop file to ``/usr/share/xsessions/swm.desktop``
 
 In order to display status info in the bar, you can do something
 like this in your .xinitrc:
@@ -39,32 +39,34 @@ like this in your .xinitrc:
     do
     	sleep 1
     done &
-    exec dwm
+    exec swm
 
 
 Usage
 -----
-Alt+Shift+Enter
-    Launch xterm
-Alt+Shift+C
+Win+Shift+Enter
+    Launch terminal
+Win+Shift+C
 	Kill a client (a window, if you must insist)
-Alt+t
+Win+t
 	Switch to tile layout
-Alt+m
+Win+m
 	Switch to monocle layout
-Alt+f
+Win+f
 	Switch to floating layout
-Alt+b
+Win+b
 	Show/hide bar
-Alt+p
+Win+p
 	Launch dmenu
-Alt+[num]
+Win+[num]
+	Add tag to current display
+Win+Ctrl+[num]
 	Switch to tag [num]
-Alt+Shift+Ctrl+Q
-	Quit dwm
+Win+Shift+Ctrl+Q
+	Quit swm
 
 
 Configuration
 -------------
-The configuration of dwm is done by creating a custom config.h
+The configuration of swm is done by creating a custom config.h
 and (re)compiling the source code.

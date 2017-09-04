@@ -4,9 +4,9 @@ VERSION = 6.0
 # Customize below to fit your system
 
 # paths
-PREFIX = /home/sam
+PREFIX = /usr/local
 MANPREFIX = ${PREFIX}/share/man
-FONTDIR = ${PREFIX}/.fonts
+FONTDIR = ${HOME}/.fonts
 
 X11INC = /usr/X11R6/include
 X11LIB = /usr/X11R6/lib
